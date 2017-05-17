@@ -55,8 +55,10 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
 
 
+
 ## What I did in general:
 * I minified all pictures with "ImageOptim" to reduce their size
+  After that I reduced the size of the images again, manually, because optimizing with ImageOptim wasn't sufficient.
 
 ## What I did to optimize the Performance of the Portfolio:
 
@@ -66,7 +68,8 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * I deleted the link of the google fonts link because this font didn't need to be linked. The font did not change after deleting the link.
 
-* I made added the **"media="print"**
+* I added the **"media="print"** attribute
+* I added **media="screen"** attribute to the script tag of google Analytics and added **async**.
 
 
 ## What I did to optimize the pizza-site:
@@ -75,14 +78,17 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * I have inlined the style.css and added it to the pizza.html - I deleted the link and the css file.
 
-* In the main.js I reduced the size and the number (frim 8 to 6) of the pizzas which are moving in the background while you are scrolling. I think it's totally sufficient like that.
-
 * I changed the for loop in row 457 to try to reduce the painting of the browser.
 
 
 
+## HOW TO USE: 
 
+To see the whole Portfolio website you only have to open the index.html with your favorite browser.
 
+When the site is completely loaded you can see all the the content and if you are interested and you wish to get more information just navigate to the different projects on the page by clicking on headlines which are underlined.
 
-
+If you are hungry you can navigate to the pizza-site. There are a lot of different pizzas. 
+In the menu above you cann see the whole menu, the ingredients which are offered and the different locations of the pizza stores. The "Contact us" Button is currently not activated. But we are working on that.
+With the scrolling bar on the page you can choose the size of the pizza.
 

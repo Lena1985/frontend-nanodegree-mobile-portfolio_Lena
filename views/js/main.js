@@ -444,11 +444,11 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    var ContainerWidth = document.getElementsByClassName("randomPizzaContainer").length;
+  function changePizzaSizes(size) { 
     // Sets randomPizzaContainer before the for loop to save repeated processing
     var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    var newwidth = [];
+    var ContainerWidth = randomPizzaContainer.length;
+    var newwidth = randomPizzaContainer[0];
     for (var i = 0; i < ContainerWidth; i++) {
       var dx = determineDx(randomPizzaContainer[i], size);
       newwidth[i] = (randomPizzaContainer[i].offsetWidth + dx) + 'px';
@@ -506,9 +506,10 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
+  var scrollPosition = document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((scrollPosition / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -526,17 +527,17 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { 
   var cols = 8;
   var s = 256;
+  var rows = window.innerHeight / s;
   
-  
-  // Number of Pizzas shown in on the screen 
-  var pizzas = (window.innerHeight / 90) + (window.innerWidth / 90);
+  // Number of Pizzas shown on the screen 
+  var pizzas = rows * cols;
   for (var i = 0; i < pizzas; i++) {
-  var elem = document.createElement('img');
+    var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/pizza_small.png";
     elem.style.height = "100px";
     elem.style.width = "auto";
     elem.basicLeft = (i % cols) * s;
